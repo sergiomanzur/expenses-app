@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import './components/ExpensesItem';
+import ExpensesItem from "./components/ExpensesItem";
 
 function App() {
-  return (
+
+    const data = [
+        {
+            date: "March 20th, 2022",
+            description: "Car Insurance",
+            price: "$25.50"
+        },
+        {
+            date: "April 25th, 2022",
+            description: "Google One",
+            price: "$5.00"
+        }
+    ]
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Expenses App</h1>
       </header>
+        <div>
+            {data.map((x) => (
+                <ExpensesItem date={x.date} description={x.description}
+                price={x.price}/>
+            ))}
+        </div>
     </div>
   );
 }
